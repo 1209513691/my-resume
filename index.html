@@ -602,6 +602,39 @@
     }
     .contact-cta a.secondary:hover { background: var(--navy-light); }
 
+    /* ===== Demo CTA (project block) ===== */
+    .demo-cta {
+      margin-top: 22px;
+      padding-top: 18px;
+      border-top: 0.6px solid #ddd;
+      display: flex;
+      justify-content: center;
+    }
+    .demo-cta a {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 28px;
+      background: var(--gold);
+      color: white;
+      border-radius: 3px;
+      font-size: 13.5px; font-weight: 700;
+      text-decoration: none;
+      font-family: "Avenir Next", sans-serif;
+      transition: all 0.2s ease;
+      box-shadow: 0 3px 10px rgba(184, 137, 53, 0.3);
+    }
+    .demo-cta a:hover {
+      background: var(--navy);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(31, 52, 125, 0.35);
+    }
+    .demo-cta a .arrow {
+      font-size: 16px;
+      transition: transform 0.2s ease;
+    }
+    .demo-cta a:hover .arrow { transform: translateX(3px); }
+
     /* ===== Scroll progress (top bar) ===== */
     .progress-bar {
       position: fixed;
@@ -883,6 +916,11 @@
         <li>参与产品渗透率口径升级，将项目渗透率从 campaign 维度调整为"周创建 <span class="num">20 条 AD 以上</span> / 月 <span class="num">80 条以上</span>"，使数据更贴近真实投放场景</li>
         <li>通过大群公示、出错人员名单通报、分周覆盖率拆解等方式，定向推动低覆盖团队使用，推动 APP 行业从零突破。针对覆盖率回落进行归因复盘，输出优化建议，调整后续运营策略</li>
       </ul>
+      <div class="demo-cta">
+        <a href="https://1209513691.github.io/w31/dashboard-GAME-%E5%8D%8E%E4%B8%9C%E7%BB%84-W31.html" target="_blank" rel="noopener noreferrer">
+          <span>🔗</span> 查看真实看板 Demo <span class="arrow">→</span>
+        </a>
+      </div>
     </div>
   </section>
 
