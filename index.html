@@ -1,0 +1,1097 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>刘羽萱 · 自我介绍 | 产品运营 / 产品经理</title>
+  <style>
+    :root {
+      --paper: #ffffff;
+      --ink: #1c2030;
+      --muted: #5f6474;
+      --navy: #1f347d;
+      --blue: #3857c6;
+      --gold: #b88935;
+      --bg: #eef0f5;
+      --gold-light: #faf3e6;
+      --navy-light: #e8ebf4;
+      --shadow: 0 4px 24px rgba(28, 32, 48, 0.08);
+      --shadow-lg: 0 12px 48px rgba(28, 32, 48, 0.14);
+      --radius: 18px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ===== Sidebar ===== */
+    .sidebar {
+      position: fixed;
+      top: 0; left: 0;
+      width: 220px; height: 100vh;
+      background: var(--paper);
+      border-right: 1.2px solid var(--navy);
+      padding: 28px 18px;
+      display: flex; flex-direction: column;
+      z-index: 100;
+      transition: transform 0.3s ease;
+    }
+
+    .sidebar-brand {
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 28px;
+      padding-bottom: 18px;
+      border-bottom: 1.2px solid var(--navy);
+    }
+
+    .sidebar-brand .avatar {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: var(--navy);
+      display: flex; align-items: center; justify-content: center;
+      color: white; font-weight: 800; font-size: 16px;
+      font-family: "Songti SC", serif;
+    }
+
+    .sidebar-brand .info .name {
+      font-size: 13px; font-weight: 800; color: var(--navy);
+    }
+
+    .sidebar-brand .info .target {
+      font-size: 10px; color: var(--muted); font-weight: 600;
+      font-family: "Avenir Next", sans-serif;
+    }
+
+    .nav-list { list-style: none; flex: 1; }
+    .nav-list li { margin-bottom: 2px; }
+
+    .nav-list a {
+      display: flex; align-items: center; gap: 10px;
+      padding: 9px 11px;
+      color: var(--muted);
+      text-decoration: none;
+      border-radius: 6px;
+      font-size: 12.5px; font-weight: 600;
+      font-family: "Avenir Next", sans-serif;
+      transition: all 0.2s ease;
+    }
+
+    .nav-list a .nav-num {
+      width: 20px; height: 20px; border-radius: 4px;
+      background: var(--navy-light);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 9.5px; font-weight: 700;
+      color: var(--muted); flex-shrink: 0;
+      transition: all 0.2s ease;
+    }
+
+    .nav-list a:hover { background: var(--navy-light); color: var(--navy); }
+    .nav-list a.active {
+      background: var(--navy); color: white;
+      box-shadow: 0 3px 10px rgba(31, 52, 125, 0.3);
+    }
+    .nav-list a.active .nav-num { background: rgba(255,255,255,0.2); color: white; }
+
+    .sidebar-footer {
+      padding-top: 14px;
+      border-top: 0.6px solid #ddd;
+      font-size: 10.5px; color: var(--muted);
+      font-family: "Avenir Next", sans-serif;
+    }
+    .sidebar-footer .contact-item { margin-bottom: 5px; }
+
+    /* ===== Main ===== */
+    .main { margin-left: 220px; }
+
+    /* ===== Block (PPT-like card) ===== */
+    .block {
+      min-height: 100vh;
+      padding: 80px 64px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .block-inner {
+      max-width: 980px;
+      width: 100%;
+      background: var(--paper);
+      border-radius: var(--radius);
+      padding: 48px 56px;
+      box-shadow: var(--shadow);
+      border: 0.6px solid #d8dbe3;
+      position: relative;
+      /* animation base */
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .block-inner.revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .block-num {
+      position: absolute;
+      top: -22px; left: 32px;
+      background: var(--navy);
+      color: white;
+      padding: 6px 14px;
+      border-radius: 4px;
+      font-size: 11px; font-weight: 800;
+      font-family: "Avenir Next", sans-serif;
+      letter-spacing: 0.1em;
+      box-shadow: 0 4px 12px rgba(31, 52, 125, 0.3);
+    }
+
+    .block-num .gold-dot {
+      display: inline-block;
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--gold);
+      margin-right: 6px;
+      vertical-align: middle;
+    }
+
+    .block-title {
+      font-size: 30px;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 6px;
+      line-height: 1.2;
+      padding-bottom: 12px;
+      border-bottom: 1.2px solid var(--navy);
+    }
+
+    .block-subtitle {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 28px;
+      font-family: "Avenir Next", sans-serif;
+    }
+
+    /* ===== Block: Cover (Hero) ===== */
+    .block-cover .block-inner {
+      background: linear-gradient(135deg, var(--navy) 0%, #2a4a9c 100%);
+      color: white;
+      padding: 64px 56px;
+      border: none;
+    }
+
+    .block-cover .block-num { background: var(--gold); }
+
+    .cover-grid {
+      display: grid;
+      grid-template-columns: 1fr 240px;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .cover-text .label {
+      display: inline-block;
+      padding: 4px 12px;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 3px;
+      font-size: 11px; font-weight: 700;
+      font-family: "Avenir Next", sans-serif;
+      letter-spacing: 0.1em;
+      margin-bottom: 18px;
+    }
+
+    .cover-text h1 {
+      font-size: 52px; font-weight: 800;
+      margin-bottom: 8px; line-height: 1.1;
+    }
+
+    .cover-text h1 .gold { color: var(--gold); }
+
+    .cover-text .role {
+      font-size: 17px;
+      color: var(--gold);
+      font-weight: 700;
+      margin-bottom: 18px;
+      font-family: "Avenir Next", sans-serif;
+    }
+
+    .cover-text .summary {
+      font-size: 13.5px;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.75;
+      margin-bottom: 20px;
+    }
+
+    .cover-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+
+    .cover-tag {
+      padding: 4px 12px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.25);
+      color: white;
+      font-size: 11px; font-weight: 700;
+      border-radius: 2px;
+      font-family: "Avenir Next", sans-serif;
+    }
+
+    .cover-tag.gold {
+      background: var(--gold);
+      border-color: var(--gold);
+    }
+
+    .cover-character {
+      width: 100%; aspect-ratio: 1;
+      border-radius: 14px;
+      overflow: hidden;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .cover-character img { width: 100%; height: 100%; object-fit: cover; }
+
+    /* ===== Block: About Me ===== */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+
+    .about-text {
+      font-size: 14px;
+      color: #333;
+      line-height: 1.85;
+    }
+
+    .about-text p { margin-bottom: 14px; }
+
+    .about-text .highlight {
+      color: var(--navy);
+      font-weight: 700;
+      background: var(--navy-light);
+      padding: 1px 4px;
+      border-radius: 2px;
+    }
+
+    .about-meta {
+      background: var(--gold-light);
+      border-left: 3px solid var(--gold);
+      padding: 18px 22px;
+      border-radius: 8px;
+    }
+
+    .about-meta .label {
+      font-size: 10.5px; font-weight: 800;
+      color: var(--gold);
+      text-transform: uppercase; letter-spacing: 0.1em;
+      margin-bottom: 10px;
+      font-family: "Avenir Next", sans-serif;
+    }
+
+    .about-meta .meta-item {
+      display: flex; justify-content: space-between;
+      padding: 6px 0;
+      font-size: 12.5px;
+      border-bottom: 0.6px dashed rgba(184, 137, 53, 0.3);
+    }
+    .about-meta .meta-item:last-child { border-bottom: none; }
+    .about-meta .meta-item .k { color: var(--muted); }
+    .about-meta .meta-item .v { color: var(--ink); font-weight: 700; }
+
+    /* ===== Block: Education ===== */
+    .edu-card {
+      background: var(--navy-light);
+      border-radius: 12px;
+      padding: 24px 28px;
+      margin-bottom: 16px;
+      border-left: 4px solid var(--navy);
+      transition: transform 0.25s ease;
+    }
+    .edu-card:last-child { margin-bottom: 0; }
+    .edu-card:hover { transform: translateX(4px); }
+
+    .edu-card .edu-head {
+      display: flex; justify-content: space-between; align-items: baseline;
+      margin-bottom: 6px;
+    }
+
+    .edu-card .edu-school {
+      font-size: 18px; font-weight: 800; color: var(--navy);
+    }
+
+    .edu-card .edu-period {
+      font-size: 12px; color: var(--muted); font-weight: 600;
+      font-family: "Avenir Next", sans-serif;
+    }
+
+    .edu-card .edu-program {
+      font-size: 13.5px; color: #444; font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .edu-card .edu-details {
+      font-size: 13px; color: #333; line-height: 1.7;
+    }
+
+    .edu-card .edu-details li {
+      list-style: none;
+      padding-left: 14px;
+      position: relative;
+      margin-bottom: 3px;
+    }
+
+    .edu-card .edu-details li::before {
+      content: '•'; position: absolute; left: 0;
+      color: var(--navy); font-weight: 700;
+    }
+
+    /* ===== Block: Internship Detail ===== */
+    .intern-head {
+      display: flex; justify-content: space-between; align-items: flex-start;
+      margin-bottom: 16px;
+      padding-bottom: 14px;
+      border-bottom: 1.2px solid var(--navy);
+    }
+
+    .intern-head .company {
+      font-size: 20px; font-weight: 800; color: var(--navy);
+    }
+
+    .intern-head .role {
+      font-size: 13px; color: #444; font-weight: 700; margin-top: 3px;
+    }
+
+    .intern-head .period {
+      font-size: 12px; color: var(--muted); font-weight: 600;
+      font-family: "Avenir Next", sans-serif;
+      white-space: nowrap;
+    }
+
+    .intern-tags { display: flex; gap: 6px; margin-bottom: 20px; flex-wrap: wrap; }
+
+    .intern-tag {
+      padding: 3px 11px;
+      border-radius: 2px;
+      font-size: 11px; font-weight: 700;
+      font-family: "Avenir Next", sans-serif;
+    }
+
+    .intern-tag.project { background: var(--navy); color: white; }
+    .intern-tag.scale { background: var(--gold-light); color: var(--gold); }
+
+    .module-block {
+      margin-bottom: 18px;
+      padding: 16px 18px;
+      background: var(--bg);
+      border-radius: 8px;
+      border-left: 3px solid var(--navy);
+    }
+    .module-block:last-child { margin-bottom: 0; }
+
+    .module-name {
+      font-size: 14px; font-weight: 800; color: var(--navy);
+      margin-bottom: 6px;
+      display: flex; align-items: center; gap: 8px;
+    }
+
+    .module-name .module-icon {
+      width: 22px; height: 22px;
+      border-radius: 4px;
+      background: var(--navy);
+      color: white;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 12px;
+    }
+
+    .module-bullet {
+      font-size: 13px; color: #333; line-height: 1.75;
+      padding-left: 14px; position: relative;
+    }
+
+    .module-bullet::before {
+      content: '▸'; position: absolute; left: 0;
+      color: var(--navy); font-weight: 700;
+    }
+
+    .module-bullet .num {
+      color: var(--gold);
+      font-weight: 800;
+      font-family: "Avenir Next", sans-serif;
+    }
+
+    /* ===== Block: Project Detail ===== */
+    .project-hero {
+      display: flex; align-items: center; gap: 16px;
+      margin-bottom: 20px;
+      padding-bottom: 16px;
+      border-bottom: 1.2px solid var(--navy);
+    }
+
+    .project-hero .project-icon {
+      width: 56px; height: 56px;
+      border-radius: 12px;
+      background: var(--navy);
+      color: white;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 28px;
+    }
+
+    .project-hero .project-title h3 {
+      font-size: 19px; font-weight: 800; color: var(--navy);
+    }
+
+    .project-hero .project-title .project-role {
+      font-size: 12.5px; color: var(--gold); font-weight: 700;
+      font-family: "Avenir Next", sans-serif;
+      margin-top: 3px;
+    }
+
+    .project-details li {
+      font-size: 13px; color: #333; line-height: 1.75;
+      margin-bottom: 10px;
+      padding: 10px 14px 10px 32px;
+      position: relative;
+      background: var(--bg);
+      border-radius: 8px;
+      list-style: none;
+    }
+
+    .project-details li::before {
+      content: '✦'; position: absolute; left: 12px; top: 10px;
+      color: var(--gold); font-weight: 700;
+    }
+
+    .project-details li .num {
+      color: var(--navy);
+      font-weight: 800;
+      font-family: "Avenir Next", sans-serif;
+    }
+
+    /* ===== Block: Skills ===== */
+    .skill-categories { display: flex; flex-direction: column; gap: 22px; }
+
+    .skill-category h4 {
+      font-size: 13.5px; font-weight: 800; color: var(--navy);
+      margin-bottom: 12px;
+      display: flex; align-items: center; gap: 8px;
+      font-family: "Avenir Next", sans-serif;
+    }
+
+    .skill-category h4::before {
+      content: ''; width: 3px; height: 16px; background: var(--navy);
+    }
+
+    .skill-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+
+    .skill-chip {
+      padding: 7px 15px;
+      background: var(--navy-light);
+      color: var(--navy);
+      font-size: 12.5px; font-weight: 700;
+      border-radius: 3px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      user-select: none;
+      font-family: "Avenir Next", sans-serif;
+    }
+
+    .skill-chip:hover { background: var(--navy); color: white; }
+
+    .skill-chip.selected {
+      background: var(--navy); color: white;
+      box-shadow: 0 3px 10px rgba(31, 52, 125, 0.3);
+      transform: scale(1.05);
+    }
+
+    .skill-chip.ai { background: var(--navy); color: white; }
+    .skill-chip.ai.selected { background: var(--gold); color: white; }
+
+    .ai-usage-card {
+      margin-top: 22px;
+      padding: 18px 22px;
+      background: var(--gold-light);
+      border-radius: 10px;
+      border-left: 3px solid var(--gold);
+    }
+
+    .ai-usage-card .label {
+      font-size: 10.5px; font-weight: 800;
+      color: var(--gold);
+      text-transform: uppercase; letter-spacing: 0.1em;
+      margin-bottom: 6px;
+      font-family: "Avenir Next", sans-serif;
+    }
+
+    .ai-usage-card .text {
+      font-size: 13px; color: #444; line-height: 1.7;
+    }
+
+    /* ===== Block: Summary ===== */
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    .summary-card {
+      background: var(--bg);
+      border-radius: 10px;
+      padding: 22px;
+      text-align: center;
+      border-top: 3px solid var(--navy);
+      transition: all 0.25s ease;
+    }
+
+    .summary-card:hover {
+      transform: translateY(-4px);
+      background: var(--navy-light);
+      border-top-color: var(--gold);
+    }
+
+    .summary-card .icon {
+      width: 44px; height: 44px;
+      border-radius: 10px;
+      background: var(--navy);
+      color: white;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px;
+      margin: 0 auto 12px;
+    }
+
+    .summary-card h5 {
+      font-size: 14.5px; font-weight: 800; color: var(--navy);
+      margin-bottom: 6px;
+    }
+
+    .summary-card p {
+      font-size: 12px; color: var(--muted); line-height: 1.65;
+    }
+
+    .contact-cta {
+      display: flex; gap: 14px; flex-wrap: wrap; justify-content: center;
+      padding-top: 14px;
+      border-top: 0.6px solid #ddd;
+    }
+
+    .contact-cta a {
+      display: inline-flex; align-items: center; gap: 7px;
+      padding: 11px 24px;
+      border-radius: 3px;
+      font-size: 13px; font-weight: 700;
+      text-decoration: none;
+      font-family: "Avenir Next", sans-serif;
+      transition: all 0.2s ease;
+    }
+
+    .contact-cta a.primary {
+      background: var(--navy); color: white;
+      box-shadow: 0 3px 10px rgba(31, 52, 125, 0.3);
+    }
+    .contact-cta a.primary:hover { background: var(--gold); transform: translateY(-2px); }
+
+    .contact-cta a.secondary {
+      background: white; color: var(--navy);
+      border: 1px solid var(--navy);
+    }
+    .contact-cta a.secondary:hover { background: var(--navy-light); }
+
+    /* ===== Scroll progress (top bar) ===== */
+    .progress-bar {
+      position: fixed;
+      top: 0; left: 220px; right: 0;
+      height: 3px;
+      background: var(--navy-light);
+      z-index: 99;
+    }
+
+    .progress-bar .fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--navy) 0%, var(--gold) 100%);
+      width: 0;
+      transition: width 0.1s linear;
+    }
+
+    /* ===== Page counter (bottom right) ===== */
+    .page-counter {
+      position: fixed;
+      bottom: 24px; right: 32px;
+      background: var(--paper);
+      border: 1px solid var(--navy);
+      padding: 6px 14px;
+      border-radius: 3px;
+      font-size: 12px; font-weight: 700;
+      color: var(--navy);
+      font-family: "Avenir Next", sans-serif;
+      z-index: 99;
+      box-shadow: var(--shadow);
+    }
+
+    .page-counter .current { color: var(--gold); }
+
+    /* ===== Mobile ===== */
+    @media (max-width: 900px) {
+      .sidebar { transform: translateX(-100%); width: 200px; }
+      .sidebar.open { transform: translateX(0); }
+      .main { margin-left: 0; }
+      .progress-bar { left: 0; }
+      .block { padding: 60px 24px; }
+      .block-inner { padding: 32px 24px; }
+      .cover-grid { grid-template-columns: 1fr; gap: 24px; }
+      .cover-character { max-width: 200px; margin: 0 auto; }
+      .cover-text h1 { font-size: 36px; }
+      .block-title { font-size: 22px; }
+      .about-grid { grid-template-columns: 1fr; }
+      .mobile-toggle {
+        position: fixed; top: 12px; left: 12px; z-index: 200;
+        width: 40px; height: 40px; border-radius: 8px;
+        background: var(--navy); color: white;
+        border: none; cursor: pointer;
+        display: flex; align-items: center; justify-content: center;
+        font-size: 18px;
+      }
+    }
+
+    @media (min-width: 901px) {
+      .mobile-toggle { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<button class="mobile-toggle" id="mobileToggle" aria-label="切换导航">☰</button>
+
+<div class="progress-bar"><div class="fill" id="progressFill"></div></div>
+
+<nav class="sidebar" id="sidebar">
+  <div class="sidebar-brand">
+    <div class="avatar">刘</div>
+    <div class="info">
+      <div class="name">刘羽萱</div>
+      <div class="target">产品运营 / 产品经理</div>
+    </div>
+  </div>
+  <ul class="nav-list">
+    <li><a href="#b01" class="active" data-section="b01"><span class="nav-num">01</span> 封面</a></li>
+    <li><a href="#b02" data-section="b02"><span class="nav-num">02</span> 关于我</a></li>
+    <li><a href="#b03" data-section="b03"><span class="nav-num">03</span> 教育背景</a></li>
+    <li><a href="#b04" data-section="b04"><span class="nav-num">04</span> 实习 · 飞书深诺</a></li>
+    <li><a href="#b05" data-section="b05"><span class="nav-num">05</span> 实习 · 联蔚</a></li>
+    <li><a href="#b06" data-section="b06"><span class="nav-num">06</span> 实习 · 蓝色光标</a></li>
+    <li><a href="#b07" data-section="b07"><span class="nav-num">07</span> 项目 · QC 看板</a></li>
+    <li><a href="#b08" data-section="b08"><span class="nav-num">08</span> 项目 · 大宝会员</a></li>
+    <li><a href="#b09" data-section="b09"><span class="nav-num">09</span> 项目 · NARS 广告</a></li>
+    <li><a href="#b10" data-section="b10"><span class="nav-num">10</span> 专业能力</a></li>
+    <li><a href="#b11" data-section="b11"><span class="nav-num">11</span> 个人总结</a></li>
+  </ul>
+  <div class="sidebar-footer">
+    <div class="contact-item">✉ michelle00@yeah.net</div>
+    <div class="contact-item">☎ 134-5126-4084</div>
+  </div>
+</nav>
+
+<main class="main">
+
+  <!-- 01: Cover -->
+  <section class="block block-cover" id="b01">
+    <div class="block-inner">
+      <div class="block-num"><span class="gold-dot"></span>01 / COVER</div>
+      <div class="cover-grid">
+        <div class="cover-text">
+          <span class="label">SELF INTRODUCTION</span>
+          <h1>你好，我是<br><span class="gold">刘羽萱</span></h1>
+          <p class="role">产品运营实习生 · 数据驱动增长</p>
+          <p class="summary">
+            211 院校应用统计硕士在读，具备从数据驱动到产品化交付的完整产品运营实战经验。曾独立从 0 到 1 搭建数据看板产品并部署上线，推动业务工具渗透率提升；也有电商会员运营和广告投放领域的端到端运营经验。
+          </p>
+          <div class="cover-tags">
+            <span class="cover-tag">211 应用统计硕士</span>
+            <span class="cover-tag gold">产品运营 + 数据产品化</span>
+            <span class="cover-tag">SQL / Python / Tableau</span>
+            <span class="cover-tag">AI Agent / 低代码工具</span>
+          </div>
+        </div>
+        <div class="cover-character">
+          <img src="https://aka.doubaocdn.com/s/wsXT2kQHUr" alt="角色插画">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02: About Me -->
+  <section class="block" id="b02">
+    <div class="block-inner">
+      <div class="block-num"><span class="gold-dot"></span>02 / ABOUT ME</div>
+      <h2 class="block-title">关于我</h2>
+      <p class="block-subtitle">数据思维 · 产品化能力 · AI 工具链 · 跨业务经验</p>
+      <div class="about-grid">
+        <div class="about-text">
+          <p>我是<span class="highlight">刘羽萱</span>，华南师范大学应用统计硕士在读，本科同样来自 211 院校统计学专业，从本科到硕士在数据思维和分析方法上持续深耕。</p>
+          <p>三段实习横跨<span class="highlight">海外广告投放、电商会员运营、品牌广告投放</span>三类业务，从看板搭建到漏斗分析、从竞品调研到 RFM 分层，具备端到端的产品运营实战经验。</p>
+          <p>擅长用<span class="highlight">AI Agent + 低代码</span>工具把数据流程自动化，曾独立完成数据产品从 0 到 1 落地并部署上线，把人工取数耗时缩短 70%。</p>
+        </div>
+        <div class="about-meta">
+          <div class="label">QUICK FACTS</div>
+          <div class="meta-item"><span class="k">姓名</span><span class="v">刘羽萱</span></div>
+          <div class="meta-item"><span class="k">学历</span><span class="v">应用统计硕士（211）</span></div>
+          <div class="meta-item"><span class="k">求职方向</span><span class="v">产品运营 / 产品经理</span></div>
+          <div class="meta-item"><span class="k">实习段数</span><span class="v">3 段</span></div>
+          <div class="meta-item"><span class="k">英语</span><span class="v">CET-6 (577)</span></div>
+          <div class="meta-item"><span class="k">联系方式</span><span class="v">134-5126-4084</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03: Education -->
+  <section class="block" id="b03">
+    <div class="block-inner">
+      <div class="block-num"><span class="gold-dot"></span>03 / EDUCATION</div>
+      <h2 class="block-title">教育背景</h2>
+      <p class="block-subtitle">本科至硕士，统计学一路深耕，为产品运营打下数据思维根基。</p>
+      <div class="edu-card">
+        <div class="edu-head">
+          <span class="edu-school">华南师范大学</span>
+          <span class="edu-period">2026/09 - 2028/06</span>
+        </div>
+        <div class="edu-program">应用统计（211 院校）· 硕士</div>
+        <ul class="edu-details">
+          <li>核心课程：高等数理统计、应用多元统计、贝叶斯统计</li>
+        </ul>
+      </div>
+      <div class="edu-card">
+        <div class="edu-head">
+          <span class="edu-school">东北林业大学</span>
+          <span class="edu-period">2021/09 - 2025/06</span>
+        </div>
+        <div class="edu-program">统计学（211 院校）· 本科</div>
+        <ul class="edu-details">
+          <li>核心课程：数学分析（92）、数理统计学（91）、时间序列分析（90）、数据库技术（86）</li>
+          <li>英语水平：CET-6（577）、CET-4（592）</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04: Internship 1 - 飞书深诺 -->
+  <section class="block" id="b04">
+    <div class="block-inner">
+      <div class="block-num"><span class="gold-dot"></span>04 / INTERNSHIP 01</div>
+      <h2 class="block-title">实习经历 · 飞书深诺</h2>
+      <p class="block-subtitle">海外广告投放数据产品 · 部门级数据产品搭建与运营</p>
+      <div class="intern-head">
+        <div>
+          <div class="company">上海飞书深诺数字科技集团</div>
+          <div class="role">产品运营实习生</div>
+        </div>
+        <div class="period">2026/03 - 2026/08</div>
+      </div>
+      <div class="intern-tags">
+        <span class="intern-tag project">海外广告 QC / MSTD 工具</span>
+        <span class="intern-tag scale">Meta / TikTok / Snapchat × 部门级数据产品</span>
+      </div>
+      <div class="module-block">
+        <div class="module-name"><span class="module-icon">01</span>数据产品搭建</div>
+        <div class="module-bullet">利用 Agent 从 0 到 1 开发经营管理 HTML 周度看板，覆盖行业与组别双维度，独立完成需求梳理、指标设计到落地交付，已固化为部门常态化数据产品，完成数据脱敏并部署 GitHub 上线</div>
+      </div>
+      <div class="module-block">
+        <div class="module-name"><span class="module-icon">02</span>数据驱动运营</div>
+        <div class="module-bullet">独立搭建 QC 工具使用看板，基于漏斗模型拆解用户使用路径与转化卡点，定位低覆盖团队，通过新功能培训、异常人员通报、分周覆盖率目标拆解等手段，推动业务侧使用渗透率提升</div>
+      </div>
+      <div class="module-block">
+        <div class="module-name"><span class="module-icon">03</span>工具产品化</div>
+        <div class="module-bullet">基于低代码平台"妙搭"开发爬虫插件，实现海外渠道广告数据自动采集，推动取数流程自动化闭环，人工耗时<span class="num">缩短 70%</span>降至<span class="num">2 小时/天</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05: Internship 2 - 联蔚 -->
+  <section class="block" id="b05">
+    <div class="block-inner">
+      <div class="block-num"><span class="gold-dot"></span>05 / INTERNSHIP 02</div>
+      <h2 class="block-title">实习经历 · 联蔚</h2>
+      <p class="block-subtitle">电商会员运营 · 天猫会员生意看板与转化优化</p>
+      <div class="intern-head">
+        <div>
+          <div class="company">上海联蔚数字科技集团</div>
+          <div class="role">经营分析实习生</div>
+        </div>
+        <div class="period">2026/02 - 2026/03</div>
+      </div>
+      <div class="intern-tags">
+        <span class="intern-tag project">大宝天猫 · 会员生意部</span>
+        <span class="intern-tag scale">天猫会员生意 × 周度经营看板覆盖全渠道</span>
+      </div>
+      <div class="module-block">
+        <div class="module-name"><span class="module-icon">01</span>看板搭建与自动化</div>
+        <div class="module-bullet">搭建大宝会员销售额周报，利用 SQL 和 Tableau 搭建可视化看板，结合 ChatGPT 实现自动化框架，数据一致性从<span class="num">85% 提升至 95%</span>，输出经营分析报告含当期进展 vs 目标、同比增速、新老客占比拆解并附优化建议</div>
+      </div>
+      <div class="module-block">
+        <div class="module-name"><span class="module-icon">02</span>竞品调研与弹窗优化</div>
+        <div class="module-bullet">建立周度竞品追踪机制覆盖天猫核心竞品，结合本品牌详情页转化数据定位双弹窗导致的用户决策路径中断问题，输出入会单弹窗优化方案，协同运营团队推动需求评审与落地，入会率<span class="num">提升 30%</span>，整体转化率<span class="num">提升 18%</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06: Internship 3 - 蓝色光标 -->
+  <section class="block" id="b06">
+    <div class="block-inner">
+      <div class="block-num"><span class="gold-dot"></span>06 / INTERNSHIP 03</div>
+      <h2 class="block-title">实习经历 · 蓝色光标</h2>
+      <p class="block-subtitle">品牌广告投放 · AIPL 漏斗与 RFM 用户分层运营</p>
+      <div class="intern-head">
+        <div>
+          <div class="company">北京蓝色光标数码科技</div>
+          <div class="role">数据运营实习生</div>
+        </div>
+        <div class="period">2025/12 - 2026/03</div>
+      </div>
+      <div class="intern-tags">
+        <span class="intern-tag project">NARS · 广告投放部</span>
+        <span class="intern-tag scale">10+ 天猫广告渠道 × 20 万品牌存量用户</span>
+      </div>
+      <div class="module-block">
+        <div class="module-name"><span class="module-icon">01</span>广告投放漏斗分析</div>
+        <div class="module-bullet">基于 AIPL 模型搭建 NARS 品牌曝光(A)到兴趣(I)的数据统计表与漏斗模型，监控直通车、引力魔方等 10+ 天猫广告渠道，计算各渠道 A-I 流转率、新客占比、per 新客成本，超级直播流转率<span class="num">65.9%</span>远超其他渠道均值</div>
+      </div>
+      <div class="module-block">
+        <div class="module-name"><span class="module-icon">02</span>RFM 用户分层运营</div>
+        <div class="module-bullet">基于用户行为与生命周期阶段识别入会未购客与老客行为差异，对 20 万品牌存量用户进行 RFM 精细化分层，制定差异化沟通策略，整体短信点击率从<span class="num">6% 提升至 12%</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 07: Project 1 - QC 看板 -->
+  <section class="block" id="b07">
+    <div class="block-inner">
+      <div class="block-num"><span class="gold-dot"></span>07 / PROJECT 01</div>
+      <h2 class="block-title">项目经历 · QC 看板</h2>
+      <p class="block-subtitle">从 0 到 1 搭建数据产品，独立负责全流程落地</p>
+      <div class="project-hero">
+        <div class="project-icon">📊</div>
+        <div class="project-title">
+          <h3>QC 工具数据看板产品化</h3>
+          <div class="project-role">独立负责人 · 2026/03 - 2026/08 · 飞书深诺</div>
+        </div>
+      </div>
+      <ul class="project-details">
+        <li>基于公司 Agent（Marvy）从 0 开发 HTML 周度更新看板，覆盖项目/账户/优化师维度，新增覆盖率指标和趋势图，持续调试模型输出，建立每周更新机制。利用低代码平台开发文件管理器，自动整合海外渠道广告数据，提升看板数据更新效率</li>
+        <li>参与产品渗透率口径升级，将项目渗透率从 campaign 维度调整为"周创建 <span class="num">20 条 AD 以上</span> / 月 <span class="num">80 条以上</span>"，使数据更贴近真实投放场景</li>
+        <li>通过大群公示、出错人员名单通报、分周覆盖率拆解等方式，定向推动低覆盖团队使用，推动 APP 行业从零突破。针对覆盖率回落进行归因复盘，输出优化建议，调整后续运营策略</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 08: Project 2 - 大宝会员 -->
+  <section class="block" id="b08">
+    <div class="block-inner">
+      <div class="block-num"><span class="gold-dot"></span>08 / PROJECT 02</div>
+      <h2 class="block-title">项目经历 · 大宝会员</h2>
+      <p class="block-subtitle">SQL + Tableau + AI 自动化，端到端会员经营分析</p>
+      <div class="project-hero">
+        <div class="project-icon">🛒</div>
+        <div class="project-title">
+          <h3>大宝会员生意看板搭建</h3>
+          <div class="project-role">核心参与者 · 2026/02 - 2026/03 · 联蔚</div>
+        </div>
+      </div>
+      <ul class="project-details">
+        <li>搭建大宝会员销售额周报，利用 SQL 和 Tableau 搭建可视化看板，结合 ChatGPT 实现自动化框架，数据一致性从 <span class="num">85% 提升至 95%</span></li>
+        <li>输出经营分析报告，含当期进展 vs 目标、同比增速、新老客占比拆解并附优化建议</li>
+        <li>建立周度竞品追踪机制，定位双弹窗导致的用户决策路径中断问题，输出入会单弹窗优化方案，入会率 <span class="num">提升 30%</span>，整体转化率 <span class="num">提升 18%</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 09: Project 3 - NARS -->
+  <section class="block" id="b09">
+    <div class="block-inner">
+      <div class="block-num"><span class="gold-dot"></span>09 / PROJECT 03</div>
+      <h2 class="block-title">项目经历 · NARS 广告</h2>
+      <p class="block-subtitle">AIPL 模型 + RFM 分层，品牌广告投放精细化运营</p>
+      <div class="project-hero">
+        <div class="project-icon">🎯</div>
+        <div class="project-title">
+          <h3>NARS 广告投放漏斗分析</h3>
+          <div class="project-role">数据分析 · 2025/12 - 2026/03 · 蓝色光标</div>
+        </div>
+      </div>
+      <ul class="project-details">
+        <li>基于 AIPL 模型搭建 NARS 品牌曝光(A)到兴趣(I)的数据统计表与漏斗模型</li>
+        <li>监控直通车、引力魔方等 10+ 天猫广告渠道，计算各渠道 A-I 流转率、新客占比、per 新客成本，超级直播流转率 <span class="num">65.9%</span> 远超其他渠道均值</li>
+        <li>对 <span class="num">20 万</span> 品牌存量用户进行 RFM 精细化分层，制定差异化沟通策略，整体短信点击率从 <span class="num">6% 提升至 12%</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 10: Skills -->
+  <section class="block" id="b10">
+    <div class="block-inner">
+      <div class="block-num"><span class="gold-dot"></span>10 / SKILLS</div>
+      <h2 class="block-title">专业能力</h2>
+      <p class="block-subtitle">点击技能标签高亮选中，面试时可以快速定位自己的能力锚点。</p>
+      <div class="skill-categories">
+        <div class="skill-category">
+          <h4>专业工具</h4>
+          <div class="skill-chips">
+            <span class="skill-chip">Excel</span>
+            <span class="skill-chip selected">SQL</span>
+            <span class="skill-chip selected">Python</span>
+            <span class="skill-chip">SPSS</span>
+            <span class="skill-chip selected">Tableau</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h4>AI 工具</h4>
+          <div class="skill-chips">
+            <span class="skill-chip ai">COZE</span>
+            <span class="skill-chip ai">Cursor</span>
+            <span class="skill-chip ai">ChatGPT</span>
+            <span class="skill-chip ai">Codex</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h4>核心方法论</h4>
+          <div class="skill-chips">
+            <span class="skill-chip">漏斗模型</span>
+            <span class="skill-chip">RFM 分层</span>
+            <span class="skill-chip">AIPL 模型</span>
+            <span class="skill-chip">数据分析</span>
+            <span class="skill-chip">自动化流程</span>
+            <span class="skill-chip">低代码开发</span>
+          </div>
+        </div>
+        <div class="ai-usage-card">
+          <div class="label">AI USAGE</div>
+          <div class="text">熟练运用 AI 工具搭建自动化数据分析流程，辅助 Agent 开发、Prompt 调优与低代码插件编写。</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11: Summary -->
+  <section class="block" id="b11">
+    <div class="block-inner">
+      <div class="block-num"><span class="gold-dot"></span>11 / SUMMARY</div>
+      <h2 class="block-title">个人总结</h2>
+      <p class="block-subtitle">为什么选择我 · 数据思维 · 产品化能力 · AI 工具链 · 跨业务经验</p>
+      <div class="summary-grid">
+        <div class="summary-card">
+          <div class="icon">📈</div>
+          <h5>数据驱动</h5>
+          <p>统计学背景，擅长从数据中发现问题，用指标驱动决策</p>
+        </div>
+        <div class="summary-card">
+          <div class="icon">🚀</div>
+          <h5>产品化落地</h5>
+          <p>从 0 到 1 搭建数据产品看板，具备完整产品交付经验</p>
+        </div>
+        <div class="summary-card">
+          <div class="icon">🤖</div>
+          <h5>AI 原生工作流</h5>
+          <p>熟练使用 AI 工具链，搭建自动化流程，提升效率</p>
+        </div>
+        <div class="summary-card">
+          <div class="icon">🌐</div>
+          <h5>跨业务经验</h5>
+          <p>海外广告、电商会员、品牌投放三类业务经验，适应力强</p>
+        </div>
+      </div>
+      <div class="contact-cta">
+        <a href="mailto:michelle00@yeah.net" class="primary">✉ 邮件联系</a>
+        <a href="tel:13451264084" class="secondary">☎ 电话联系</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<div class="page-counter"><span class="current" id="pageCurrent">01</span> / 11</div>
+
+<script>
+  // ===== Reveal on scroll =====
+  const blocks = document.querySelectorAll('.block-inner');
+  const revealObs = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (e.isIntersecting) {
+        e.target.classList.add('revealed');
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -10% 0px' });
+
+  blocks.forEach((b) => revealObs.observe(b));
+
+  // ===== Scroll spy + progress + page counter =====
+  const navLinks = document.querySelectorAll('.nav-list a');
+  const sections = document.querySelectorAll('.block');
+  const progressFill = document.getElementById('progressFill');
+  const pageCurrent = document.getElementById('pageCurrent');
+
+  function onScroll() {
+    // active nav
+    const scrollPos = window.scrollY + window.innerHeight / 2.5;
+    let current = '';
+    sections.forEach((sec) => {
+      if (scrollPos >= sec.offsetTop) current = sec.id;
+    });
+    if (current) {
+      navLinks.forEach((link) => link.classList.toggle('active', link.dataset.section === current));
+      const idx = Array.from(sections).findIndex((s) => s.id === current);
+      pageCurrent.textContent = String(idx + 1).padStart(2, '0');
+    }
+
+    // progress bar
+    const docH = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = Math.min(100, (window.scrollY / docH) * 100);
+    progressFill.style.width = pct + '%';
+  }
+
+  window.addEventListener('scroll', onScroll);
+  onScroll();
+
+  // ===== Smooth nav scroll =====
+  navLinks.forEach((link) => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const target = document.querySelector(link.getAttribute('href'));
+      if (target) window.scrollTo({ top: target.offsetTop, behavior: 'smooth' });
+      if (window.innerWidth <= 900) sidebar.classList.remove('open');
+    });
+  });
+
+  // ===== Keyboard nav (optional, like PPT) =====
+  document.addEventListener('keydown', (e) => {
+    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+    const currentIdx = Array.from(sections).findIndex((s) => s.id === (document.querySelector('.nav-list a.active')?.dataset.section || 'b01'));
+    if (e.key === 'ArrowDown' || e.key === 'PageDown' || e.key === ' ') {
+      e.preventDefault();
+      if (currentIdx < sections.length - 1) {
+        sections[currentIdx + 1].scrollIntoView({ behavior: 'smooth' });
+      }
+    } else if (e.key === 'ArrowUp' || e.key === 'PageUp') {
+      e.preventDefault();
+      if (currentIdx > 0) {
+        sections[currentIdx - 1].scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  });
+
+  // ===== Skill chips toggle =====
+  document.querySelectorAll('.skill-chip').forEach((chip) => {
+    chip.addEventListener('click', () => chip.classList.toggle('selected'));
+  });
+
+  // ===== Mobile nav =====
+  document.getElementById('mobileToggle').addEventListener('click', () => {
+    sidebar.classList.toggle('open');
+  });
+</script>
+
+</body>
+</html>
