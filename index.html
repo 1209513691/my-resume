@@ -249,12 +249,55 @@
     .cover-character {
       width: 100%; aspect-ratio: 1;
       border-radius: 14px;
-      overflow: hidden;
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.2);
+      display: flex; align-items: center; justify-content: center;
     }
-
-    .cover-character img { width: 100%; height: 100%; object-fit: cover; }
+    /* 纯 CSS 徽章（替代图片） */
+    .cover-emblem {
+      position: relative;
+      width: 220px; height: 220px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .emblem-ring {
+      position: absolute; inset: 0;
+      border-radius: 50%;
+      border: 2px solid var(--gold);
+      box-shadow: 0 0 0 8px rgba(184, 137, 53, 0.1),
+                  0 12px 40px rgba(31, 52, 125, 0.25);
+    }
+    .emblem-ring::before {
+      content: ""; position: absolute; inset: 10px;
+      border-radius: 50%;
+      border: 1px dashed rgba(255, 255, 255, 0.6);
+      animation: rotate 30s linear infinite;
+    }
+    .emblem-ring::after {
+      content: ""; position: absolute; inset: 20px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--navy) 0%, #2a4a9c 100%);
+    }
+    .emblem-core {
+      position: relative; z-index: 2;
+      display: flex; flex-direction: column; align-items: center;
+      color: white;
+    }
+    .emblem-text {
+      font-family: "Avenir Next", sans-serif;
+      font-size: 44px; font-weight: 800;
+      letter-spacing: 2px;
+      color: var(--gold);
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+    .emblem-sub {
+      font-family: "Avenir Next", sans-serif;
+      font-size: 9px; font-weight: 600;
+      letter-spacing: 3px;
+      color: rgba(255, 255, 255, 0.85);
+      margin-top: 4px;
+    }
+    @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
 
     /* ===== Block: About Me ===== */
     .about-grid {
@@ -749,7 +792,13 @@
           </div>
         </div>
         <div class="cover-character">
-          <img src="avatar.png" alt="角色插画">
+          <div class="cover-emblem">
+            <div class="emblem-ring"></div>
+            <div class="emblem-core">
+              <span class="emblem-text">LYX</span>
+              <span class="emblem-sub">PRODUCT · DATA</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
